@@ -19,10 +19,10 @@ cleanup:
 	docker stop $(POSTGRES)
 
 migrateup:
-	../migrate -path db/migration -database "postgresql://$(POSTGRES_USER):$(POSTGRES_PASSWORD)@localhost:5432/$(DATABASE)?sslmode=disable" -verbose up
+	migrate -path db/migration -database "postgresql://$(POSTGRES_USER):$(POSTGRES_PASSWORD)@localhost:5432/$(DATABASE)?sslmode=disable" -verbose up
 
 migratedown:
-	../migrate -path db/migration -database "postgresql://$(POSTGRES_USER):$(POSTGRES_PASSWORD)@localhost:5432/$(DATABASE)?sslmode=disable" -verbose down
+	migrate -path db/migration -database "postgresql://$(POSTGRES_USER):$(POSTGRES_PASSWORD)@localhost:5432/$(DATABASE)?sslmode=disable" -verbose down
 
 sqlc:
 	../sqlc generate
