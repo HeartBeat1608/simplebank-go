@@ -30,4 +30,7 @@ sqlc:
 test:
 	go test -v -cover ./...
 
+server:
+	go run main.go
+
 clean_setup: postgres dropdb createdb migrateup sqlc cleanup
